@@ -1,0 +1,111 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
+@import "tailwindcss";
+
+/* @theme {
+  --color-*: initial;
+  --text-*: initial;
+  --radius-*: initial;
+  --breakpoint-*: initial;
+  --font-family-*: initial;
+} */
+
+:root {
+  --color-warning-400: #fefa79;
+  --color-warning-500: #ffbd72;
+  --color-warning-550: #ffb25d;
+
+  --color-danger-200: #f998c1;
+  --color-danger-300: #ff6aa1;
+
+  --color-sky-500: #9cbcff;
+  --color-sky-600: #689afd;
+
+  --color-primary-600: #f0f5ff;
+  --color-primary-650: #35305f;
+  --color-primary-700: #ffffff;
+}
+
+@theme inline {
+  --font-inter: Inter, sans-serif;
+
+  --color-warning-400: var(--color-warning-400);
+  --color-warning-500: var(--color-warning-500);
+  --color-warning-550: var(--color-warning-550);
+
+  --color-danger-200: var(--color-danger-200);
+  --color-danger-300: var(--color-danger-300);
+
+  --color-sky-500: var(--color-sky-500);
+  --color-sky-600: var(--color-sky-600);
+
+  --color-primary-600: var(--color-primary-600);
+  --color-primary-650: var(--color-primary-650);
+  --color-primary-700: var(--color-primary-700);
+}
+
+@layer base {
+  * {
+    @apply m-0 p-0 box-border;
+  }
+
+  html {
+    @apply scroll-smooth;
+  }
+
+  body {
+    font-family: var(--font-inter);
+    background: var(--bg-gradient-main);
+    color: var(--text-primary);
+  }
+}
+
+.scrollbar-hide {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE 10+ */
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none; /* Safari & Chrome */
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+  width: 8px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background-color: #95b8ff; /* Tailwind blue-500 */
+  border-radius: 6px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: #e5e7eb; /* Tailwind gray-200 */
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+@keyframes pulse-glow {
+  0%,
+  100% {
+    opacity: 0.3;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.6;
+    transform: scale(1.05);
+  }
+}
+
+.float-animation {
+  animation: float 6s ease-in-out infinite;
+}
+.pulse-animation {
+  animation: pulse-glow 4s ease-in-out infinite;
+}
